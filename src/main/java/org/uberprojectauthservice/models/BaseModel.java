@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 @Getter
 @Setter
@@ -20,11 +21,11 @@ public abstract class BaseModel {
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
-    protected Date createdAt;
+    protected LocalDateTime createdAt;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
-    protected Date updatedAt;
+    protected LocalDateTime updatedAt;
 
 }
