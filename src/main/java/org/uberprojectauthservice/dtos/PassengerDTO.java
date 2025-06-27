@@ -27,6 +27,7 @@ public class PassengerDTO {
     public static PassengerDTO from(Passenger passenger) {
         PassengerDTO result = PassengerDTO.builder()
                 .id(passenger.getId())
+                .name(passenger.getName())
                 .email(passenger.getEmail())
                 .phoneNumber(passenger.getPhoneNumber())
                 .createdAt(passenger.getCreatedAt())
