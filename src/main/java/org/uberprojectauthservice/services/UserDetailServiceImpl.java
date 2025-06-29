@@ -1,5 +1,6 @@
 package org.uberprojectauthservice.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,13 +15,10 @@ import java.util.Optional;
  * This class is responsible for loading the user in the form of UserDetails object for Auth
  */
 @Service
-public class UserDetailServiceIImpl implements UserDetailsService {
+public class UserDetailServiceImpl implements UserDetailsService {
 
-    private final PassengerRepository passengerRepository;
-
-    public UserDetailServiceIImpl(PassengerRepository passengerRepository) {
-        this.passengerRepository = passengerRepository;
-    }
+    @Autowired
+    private  PassengerRepository passengerRepository;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
