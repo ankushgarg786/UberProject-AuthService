@@ -1,5 +1,6 @@
 package org.uberprojectauthservice.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
@@ -10,10 +11,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.uberprojectauthservice.dtos.AuthRequestDTO;
 import org.uberprojectauthservice.dtos.AuthResponseDTO;
 import org.uberprojectauthservice.dtos.PassengerDTO;
@@ -77,4 +75,9 @@ public class AuthController {
         }
     }
 
+    @GetMapping("/validate")
+    public ResponseEntity<?> validate(HttpServletRequest request){
+
+        return new ResponseEntity<>("Success",HttpStatus.OK);
+    }
 }
